@@ -5,7 +5,7 @@ import os
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://smtp-mailer-app-1.onrender.com"])
 
 @app.route("/send-emails", methods=["POST"])
 def send_emails():
@@ -17,8 +17,6 @@ def send_emails():
     to_email = data.get("to_email")
     subject = data.get("subject")
     body = data.get("content")
-
-    print("Received data:", data)
 
     if not all([gmail_user, app_password, to_email, subject, body]):
         return jsonify({"error": "Missing required fields"}), 400
