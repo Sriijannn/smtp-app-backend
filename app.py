@@ -5,7 +5,7 @@ import os
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
-CORS(app, origins=["https://smtp-mailer-app-1.onrender.com"])
+CORS(app, origins=["https://smtp-mailer-app-1.onrender.com", "https://automail.tech","https://www.automail.tech"])
 
 @app.route("/send-emails", methods=["POST"])
 def send_emails():
